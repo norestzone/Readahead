@@ -7,11 +7,20 @@
   <title>Express Auth</title>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a>
-  </nav>
-  <main>
-    <%- body %>
-  </main>
+  <header>
+    <nav>
+      <ul>
+        <% if (!currentUser) { %> 
+        <li><a href="/auth/signup">Sign Up</a></li>
+        <li><a href="/auth/login">Log In</a></li>
+        <% } else { %> 
+        <li><a href="/auth/logout">Log Out</a></li>
+        <li><a href="/auth/profile">Profile</a></li>
+        <% } %> 
+      </ul>
+    </nav>
+  </header>
+  <%- include('partials/alerts') %> 
+  <%- body %>
 </body>
 </html>
