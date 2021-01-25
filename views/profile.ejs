@@ -1,1 +1,23 @@
 <h1><%= currentUser.name %>'s Profile</h1>
+
+<div class="searchForm">
+    <h2>Find a Book</h2>
+    <p>Search by title, author, or publisher.</p>
+    
+    <form action="/results" method="GET">
+        <input placeholder="search the library" type="text" name="searchTerm">
+        <input type="submit">
+    </form>
+</div>
+
+<div class="currentRead">
+
+</div>
+
+<div class="readingList">
+
+</div>
+
+<div class="favsList">
+
+</div>
