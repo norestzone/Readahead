@@ -11,13 +11,22 @@
 </div>
 
 <div class="currentRead">
-
+    <h3>Currently Reading</h3>
+    <!-- include alligator tag for current book -->
 </div>
 
 <div class="readingList">
-
+    <h3>Next on my Reading List</h3>
+    <!-- include forEach for reading list -->
+    <% favs.forEach(fav => { %>
+        <a href="/favs/<%= fav.isbnID %> "><p><%= fav.title %></p></a> 
+    <% }) %> 
 </div>
 
 <div class="favsList">
-
+    <h3>Some of my Favorite Books</h3>
+    <!-- include forEach for reading list -->
+    <% favs.forEach(fav => { %>
+        <a href="/favs/<%= fav.isbnID %> "><p><%= fav.title %></p></a> 
+    <% }) %> 
 </div>
