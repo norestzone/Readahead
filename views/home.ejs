@@ -1,9 +1,16 @@
 <div class="homePage">
     <!-- add header image -->
-    <h1>Home</h1>
-</div>
+    <h1>ISBN Library</h1>
+    <h2>User Log In</h2>
+    <form action="/" method="POST">
+        <input type="email" name="email" placeholder="enter email address" id="email">
 
-<div class="homeMenu">
-    <input type="button" href="/auth/signup" value="Create Account">
-    <input type="button" href="/auth/login" value="Log In">
+        <input type="password" name="password" placeholder="enter your password" id="password">
+    
+        <input type="submit" value="Log In">
+    </form>
+    <div class="createAccount">
+        <p>Don't have an account yet? Let's make one!</p>
+        <input type="button" href="/auth/signup" value="Create Account">
+    </div>
 </div>
