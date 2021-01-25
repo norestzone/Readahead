@@ -9,15 +9,13 @@
 <body>
   <header>
     <nav>
-      <ul>
-        <% if (!currentUser) { %> 
-        <li><a href="/auth/signup">Sign Up</a></li>
-        <li><a href="/auth/login">Log In</a></li>
-        <% } else { %> 
-        <li><a href="/auth/logout">Log Out</a></li>
-        <li><a href="/auth/profile">Profile</a></li>
-        <% } %> 
-      </ul>
+      <% if (!currentUser) { %> 
+        <a href="/auth/signup">Create Account</a></li>
+        <a href="/auth/login">Log In</a></li>
+      <% } else { %> 
+        <a href="/auth/logout">Log Out</a></li>
+        <a href="/auth/profile">My Profile</a></li>
+      <% } %> 
     </nav>
   </header>
   <%- include('partials/alerts') %> 

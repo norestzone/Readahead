@@ -23,7 +23,7 @@ router.post('/signup', (req, res) => {
         if(wasCreated){
             passport.authenticate('local', {
                 successRedirect: '/',
-                successFlash: 'Account created and user logged in.'
+                successFlash: 'Account created! User is logged in.'
             })(req, res) // IIFE
             res.send(`Created a new user profile for ${user.email}`)
         } else {
@@ -43,8 +43,8 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
     failureRedirect: '/auth/login',
     successRedirect: '/',
-    successFlash: 'You are now logged in',
-    failureFlash: 'Invalid email or password'
+    successFlash: 'You are now logged in!',
+    failureFlash: 'Oops! Invalid email or password, please try again.'
 }))
 
 router.get('/logout', (req, res) => {
