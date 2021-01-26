@@ -1,0 +1,21 @@
+<!-- Book Title  -->
+<h1><%= book.Title %></h1>
+
+<!-- Author, publisher, publish date -->
+<p><%= book.Author %></p>
+<p><%= book.Publisher %></p>
+
+<!-- Cover image  -->
+<img src="<%= book.Image %> "> 
+
+<!-- Add buttons - need current, reading list, favs -->
+<form action="/profile" method="POST">
+    <input type="submit" value="Add to favorites">
+    <input type="hidden" name="title" value="<%= book.Title %>">
+    <input type="hidden" name="iId" value="<%= book.imdbID %>">
+</form>
+
+<div class="reviewBook">
+    <h3>Talk About the Book:</h3>
+
+</div>

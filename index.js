@@ -50,13 +50,33 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+
 app.get('/profile',isLoggedIn, (req, res) => {
-  res.render('profile')
+    res.render('profile')
 })
 
 app.get('*', (req, res)=>{
     res.render('404')
 })
+
+
+// ---- NEW ROUTES ----
+
+// Route to User Profile
+app.get('/home', (req, res) => {
+    res.send('profile')
+})
+
+// Route to book search results
+app.get('/results', (req, res) => {
+    res.send('results')
+})
+
+// Route to book details
+app.get('/details', (req, res) => {
+    res.send('details')
+})
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Auth app is running on ${process.env.PORT}`)
