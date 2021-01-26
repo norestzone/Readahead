@@ -64,17 +64,24 @@ app.get('*', (req, res)=>{
 
 // Route to User Profile
 app.get('/home', (req, res) => {
-    res.send('profile')
+    res.send('this is your user profile page')
 })
 
 // Route to book search results
 app.get('/results', (req, res) => {
-    res.send('results')
+    res.send('you have reached the book search results')
+})
+
+// Route to a spcific book's details
+app.get('/books/:id', (req, res) => {
+    res.send('you have reached the details for a specific book')
+    .catch((error) => {
+    })
 })
 
 // Route to book details
 app.get('/details', (req, res) => {
-    res.send('details')
+    res.send('you have reached the book details')
 })
 
 
