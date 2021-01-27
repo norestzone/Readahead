@@ -86,5 +86,5 @@ app.get('/details', (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
-    console.log(`Auth app is running on ${process.env.PORT}`)
+    console.log(`Project 2 is running on ${process.env.PORT}`)
 })

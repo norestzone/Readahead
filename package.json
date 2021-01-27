@@ -1,7 +1,6 @@
 {
   "name": "express-auth",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +21,15 @@
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
     "sequelize": "^6.4.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norestzone/project_2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/norestzone/project_2/issues"
+  },
+  "homepage": "https://github.com/norestzone/project_2#readme",
+  "description": ""
 }
