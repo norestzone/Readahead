@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/profile',isLoggedIn, (req, res) => {
-    res.redirect('profile')
+    res.render('profile')
 })
 
 app.get('*', (req, res)=>{
