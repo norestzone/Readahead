@@ -5,22 +5,28 @@
 <h1><%= book.title %></h1>
 
 <!-- Author, publisher, publish date -->
-<p><%= book.author %></p>
-<p><%= book.isbn %></p>
+<p>Author(s): <%= book.author %></p>
+<p>ISBN: <%= book.isbn %></p>
 
 <!-- Add buttons - need current, reading list, favs -->
 
 <!-- Add to currently reading -->
 <form action="/profile" method="POST">
     <input type="submit" value="Currently Reading">
-    <input type="hidden" name="title" value="<%= book.title %>">
-    <input type="hidden" name="iId" value="<%= book.isbn %>">
+    <input type="hidden" name="currentTitle" value="<%= book.title %>">
+    <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
+</form>
+<!-- Add to reading list -->
+<form action="/profile" method="POST">
+    <input type="submit" value="Reading List">
+    <input type="hidden" name="currentTitle" value="<%= book.title %>">
+    <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
 </form>
 <!-- Add to favorites -->
 <form action="/profile" method="POST">
     <input type="submit" value="Add to Favorites">
-    <input type="hidden" name="title" value="<%= book.title %>">
-    <input type="hidden" name="iId" value="<%= book.isbn %>">
+    <input type="hidden" name="favTitle" value="<%= book.title %>">
+    <input type="hidden" name="favIsbn" value="<%= book.isbn %>">
 </form>
 
 
