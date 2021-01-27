@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/profile',isLoggedIn, (req, res) => {
-    res.render('profile')
+    res.redirect('profile')
 })
 
 app.get('*', (req, res)=>{
@@ -63,9 +63,9 @@ app.get('*', (req, res)=>{
 // ---- NEW ROUTES ----
 
 // Route to User Profile
-app.get('/home', (req, res) => {
-    res.send('this is your user profile page')
-})
+// app.get('/home', (req, res) => {
+//     res.send('profile')
+// })
 
 // Route to book search results
 app.get('/results', (req, res) => {

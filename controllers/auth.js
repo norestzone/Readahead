@@ -22,10 +22,10 @@ router.post('/signup', (req, res) => {
     .then(([user, wasCreated]) => {
         if(wasCreated){
             passport.authenticate('local', {
-                successRedirect: '/',
+                successRedirect: '/profile',
                 successFlash: 'Account created! User is logged in.'
             })(req, res) // IIFE
-            res.send(`Created a new user profile for ${user.email}`)
+            res.redirect('/profile')
         } else {
             req.flash('error', 'An account associated with that email already exists.')
             res.redirect('/auth/login')
@@ -42,7 +42,7 @@ router.get('/login', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {
     failureRedirect: '/auth/login',
-    successRedirect: '/',
+    successRedirect: '/profile',
     successFlash: 'You are now logged in!',
     failureFlash: 'Oops! Invalid email or password, please try again.'
 }))

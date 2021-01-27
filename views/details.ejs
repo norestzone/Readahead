@@ -1,21 +1,48 @@
+<!-- Cover image  -->
+<img src="<%= book.image %>"> 
+
 <!-- Book Title  -->
-<h1><%= book.Title %></h1>
+<h1><%= book.title %></h1>
 
 <!-- Author, publisher, publish date -->
-<p><%= book.Author %></p>
-<p><%= book.Publisher %></p>
-
-<!-- Cover image  -->
-<img src="<%= book.Image %> "> 
+<p><%= book.author %></p>
+<p><%= book.isbn %></p>
 
 <!-- Add buttons - need current, reading list, favs -->
+
+<!-- Add to currently reading -->
 <form action="/profile" method="POST">
-    <input type="submit" value="Add to favorites">
-    <input type="hidden" name="title" value="<%= book.Title %>">
-    <input type="hidden" name="iId" value="<%= book.imdbID %>">
+    <input type="submit" value="Currently Reading">
+    <input type="hidden" name="title" value="<%= book.title %>">
+    <input type="hidden" name="iId" value="<%= book.isbn %>">
+</form>
+<!-- Add to favorites -->
+<form action="/profile" method="POST">
+    <input type="submit" value="Add to Favorites">
+    <input type="hidden" name="title" value="<%= book.title %>">
+    <input type="hidden" name="iId" value="<%= book.isbn %>">
 </form>
 
-<div class="reviewBook">
-    <h3>Talk About the Book:</h3>
 
+<hr />
+<!-- Comment section -->
+<div class="bookComment">
+    <h3>Talk About the Book:</h3>
+    <form class="userComment" action="/<%= book. %>" method="POST">
+        <input type="text" placeholder="Your name" name="name">
+        <input type="text" placeholder="Write a comment" name="comment">
+        <br>
+        <br>
+        <input type="submit" value="Post to conversation thread">
+    </form>
 </div>
+<hr />
+
+
+<% // Render individual movie details here %>
+<% // This is how to do comments in EJS, by the way... %>
+
+<h1><%= movie.Title %></h1>
+<p>Release Date: <%= movie.Released %></p>
+<p>IBDM ID: <%= movie.imdbID %></p>
+<img src="<%= movie.Poster %> "> 
