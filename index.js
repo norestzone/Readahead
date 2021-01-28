@@ -47,6 +47,23 @@ app.use('/auth', require('./controllers/auth.js'))
 app.use(express.static(__dirname + '/public'));
 
 
+// Route to book search results
+app.get('/results', (req, res) => {
+    let headers = {
+        "Content-Type": 'application/json',
+        "Authorization": process.env.API_KEY
+    }
+         
+    axios.get(`https://api2.isbndb.com/books/${req.query.name}`, {headers: headers})
+        .then(json => {
+            console.log(json.data)
+            res.render('results', {books:json.data.books})
+            // res.json(json.data)
+        })
+        .catch(error => {
+            console.error('Error:', error)
+        });
+})
 
 // Routes
 app.get('/', (req, res) => {
@@ -70,21 +87,6 @@ app.get('*', (req, res)=>{
     //     res.send('profile')
     // })
     
-// Route to book search results
-app.get('/results', (req, res) => {
-    let headers = {
-        "Content-Type": 'application/json',
-        "Authorization": process.env.API_KEY
-    }
-         
-    axios.get(`https://api2.isbndb.com/book/${req.query.name}`, {headers: headers})
-        .then(json => {
-            console.log(json.data)
-        })
-        .catch(error => {
-            console.error('Error:', error)
-        });
-})
 
 
 // Route to a specific book's details

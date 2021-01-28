@@ -1,6 +1,15 @@
 body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: whitesmoke;
     text-align: center;
+}
+
+h1 {
+    color: rgb(68, 173, 192);
+}
+
+h1, h2, h3, p {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .homePage {
@@ -10,12 +19,12 @@ body {
     width: 500px;
 }
 
-#email, #password, #loginButton {
+#email, #password, #loginButton, #searchButton {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-#loginButton, #createButton {
+#loginButton, #createButton, #searchButton {
     width: 125px;
     height: 20px;
     background-color: rgb(68, 173, 192);
