@@ -5,45 +5,42 @@
 <h1><%= book.title %></h1>
 
 <!-- Author, publisher, publish date -->
-<p>Author(s): <%= book.author %></p>
+<p>Author(s): <%= book.authors %></p>
 <p>ISBN: <%= book.isbn %></p>
 
 <!-- Add buttons - need current, reading list, favs -->
 
 <!-- Add to currently reading -->
 <form action="/profile" method="POST">
-    <input type="submit" value="Currently Reading">
+    <input type="submit" value="Currently Reading" id="currentBook">
     <input type="hidden" name="currentTitle" value="<%= book.title %>">
     <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
-</form>
-<!-- Add to reading list -->
-<form action="/profile" method="POST">
-    <input type="submit" value="Reading List">
-    <input type="hidden" name="currentTitle" value="<%= book.title %>">
-    <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
-</form>
-<!-- Add to favorites -->
-<form action="/profile" method="POST">
-    <input type="submit" value="Add to Favorites">
+    
+    <input type="submit" value="Add to Reading List" id="listBooks">
+    <input type="hidden" name="listTitle" value="<%= book.title %>">
+    <input type="hidden" name="listIsbn" value="<%= book.isbn %>">
+
+    <input type="submit" value="Add to Favorites" id="favBooks">
     <input type="hidden" name="favTitle" value="<%= book.title %>">
     <input type="hidden" name="favIsbn" value="<%= book.isbn %>">
 </form>
 
 
 <hr />
+<!-- Conversation thread -->
+<div class="bookConvo">
+    <h3>What Readers Are Saying</h3>
+
+</div>
+
 <!-- Comment section -->
 <div class="bookComment">
-    <h3>Talk About the Book</h3>
+    <h3>Get in on the conversation!</h3>
     <form class="userComment" action="/book/<%= book.isbn %>/comments" method="POST">
         <input type="text" placeholder="Your name" name="name">
         <input type="text" placeholder="Write a comment" name="comment">
         <br>
         <br>
-        <input type="submit" value="Post to conversation thread">
+        <input type="submit" value="Post to conversation thread" id="postComment">
     </form>
-</div>
-
-<!-- Conversation thread -->
-<div class="bookConvo">
-    <h3>What Readers Are Saying</h3>
 </div>

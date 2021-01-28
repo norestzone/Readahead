@@ -1,10 +1,11 @@
 <h1><%= currentUser.name %>'s Profile</h1>
+<hr>
 
 <div class="searchForm">
     <h2>Find a Book</h2>
     
     <form action="/results" method="GET">
-        <input placeholder="search by title, author, or publisher" type="text" name="name" id="searchTerm">
+        <input placeholder="search by isbn, title, author, or publisher" type="text" name="name" id="searchTerm">
         <br>
         <input type="submit" value="Search Library" id="searchButton">
     </form>

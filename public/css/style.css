@@ -1,4 +1,5 @@
 body {
+    margin: 10px 100px 10px 100px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: whitesmoke;
     text-align: center;
@@ -19,19 +20,37 @@ h1, h2, h3, h4, h5, h6 p {
     width: 500px;
 }
 
-#email, #password, #loginButton, #searchButton {
+.searchForm {
+    margin-top: 50px;
+    border: 1px solid lightgray;
+    width: 400px;
+}
+
+#email, #password, #loginButton, #searchButton, #currentBook, #listBooks, #favBooks {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-#loginButton, #createButton, #searchButton {
-    width: 125px;
+#searchTerm {
+    width: 300px;
+}
+
+#loginButton, #createButton, #searchButton, #currentBook, #listBooks, #favBooks {
+    width: 130px;
     height: 20px;
     background-color: rgb(68, 173, 192);
     color: white;
     border: rgb(68, 173, 192);
 }
 
-#createButton {
+#createButton, #searchButton {
     margin-bottom: 30px;
+}
+
+#postComment {
+    width: 175px;
+    height: 20px;
+    background-color: rgb(68, 173, 192);
+    color: white;
+    border: rgb(68, 173, 192);
 }
