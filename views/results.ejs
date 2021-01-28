@@ -1,5 +1,7 @@
+<h1>Search Results</h1>
+<hr>
 <% books.forEach(book => { %>
-    <p><%= book.title %></p></a> 
-    <p><%= book.author %><%= book.isbn %></p>
     <img src="<%= book.image %>"> 
+    <h3><a href="/book/<%= book.isbn %> "><%= book.title %></h3></a> 
+    <h4>Author(s): <%= book.authors %> | ISBN: <%= book.isbn %></h4>
 <% }) %>

@@ -34,7 +34,7 @@
 <!-- Comment section -->
 <div class="bookComment">
     <h3>Talk About the Book:</h3>
-    <form class="userComment" action="/<%= book. %>" method="POST">
+    <form class="userComment" action="/book/<%= book.isbn %>/comments" method="POST">
         <input type="text" placeholder="Your name" name="name">
         <input type="text" placeholder="Write a comment" name="comment">
         <br>
@@ -43,12 +43,3 @@
     </form>
 </div>
 <hr />
-
-
-<% // Render individual movie details here %>
-<% // This is how to do comments in EJS, by the way... %>
-
-<h1><%= movie.Title %></h1>
-<p>Release Date: <%= movie.Released %></p>
-<p>IBDM ID: <%= movie.imdbID %></p>
-<img src="<%= movie.Poster %> "> 

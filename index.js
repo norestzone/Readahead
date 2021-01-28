@@ -46,6 +46,7 @@ app.use('/auth', require('./controllers/auth.js'))
 // ADDED CSS
 app.use(express.static(__dirname + '/public'));
 
+// **** NEW ROUTES ****
 
 // Route to book search results
 app.get('/results', (req, res) => {
@@ -65,6 +66,29 @@ app.get('/results', (req, res) => {
         });
 })
 
+app.get('/book/:isbn', (req, res) => {
+    let headers = {
+        "Content-Type": 'application/json',
+        "Authorization": process.env.API_KEY
+    }
+    console.log(req.params)     
+    axios.get(`https://api2.isbndb.com/book/${req.params.isbn}`, {headers: headers})
+        .then(json => {
+            console.log(json.data)
+            res.render('details', {book:json.data.book})
+            // res.json(json.data)
+        })
+        .catch(error => {
+            console.error('Error:', error)
+        });
+})
+
+// Comment unfinished
+app.post('/book/:isbn/comments', (req, res) => {
+    console.log('comments reached')
+})
+
+
 // Routes
 app.get('/', (req, res) => {
     res.render('home')
@@ -81,20 +105,6 @@ app.get('*', (req, res)=>{
 
 
 // ---- NEW ROUTES ----
-
-// Route to User Profile
-// app.get('/home', (req, res) => {
-    //     res.send('profile')
-    // })
-    
-
-
-// Route to a specific book's details
-app.get('/books/:id', (req, res) => {
-    res.send('you have reached the details for a specific book')
-    .catch((error) => {
-    })
-})
 
 // Route to book details
 app.get('/details', (req, res) => {
