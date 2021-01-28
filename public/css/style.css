@@ -2,3 +2,27 @@ body {
     background-color: whitesmoke;
     text-align: center;
 }
+
+.homePage {
+    display: inline-block;
+    margin: 50px;
+    border: 1px solid black;
+    width: 500px;
+}
+
+#email, #password, #loginButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#loginButton, #createButton {
+    width: 125px;
+    height: 20px;
+    background-color: rgb(68, 173, 192);
+    color: white;
+    border: rgb(68, 173, 192);
+}
+
+#createButton {
+    margin-bottom: 30px;
+}

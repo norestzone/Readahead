@@ -8,6 +8,7 @@ const session = require('express-session')
 const passport = require('./config/ppConfig.js')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
+const { default: axios } = require('axios')
 
 // set the view engine to ejs
 app.set('view engine', 'ejs')
@@ -45,6 +46,8 @@ app.use('/auth', require('./controllers/auth.js'))
 // ADDED CSS
 app.use(express.static(__dirname + '/public'));
 
+
+
 // Routes
 app.get('/', (req, res) => {
     res.render('home')
@@ -64,15 +67,27 @@ app.get('*', (req, res)=>{
 
 // Route to User Profile
 // app.get('/home', (req, res) => {
-//     res.send('profile')
-// })
-
+    //     res.send('profile')
+    // })
+    
 // Route to book search results
 app.get('/results', (req, res) => {
-    res.send('you have reached the book search results')
+    let headers = {
+        "Content-Type": 'application/json',
+        "Authorization": process.env.API_KEY
+    }
+         
+    axios.get(`https://api2.isbndb.com/book/${req.query.name}`, {headers: headers})
+        .then(json => {
+            console.log(json.data)
+        })
+        .catch(error => {
+            console.error('Error:', error)
+        });
 })
 
-// Route to a spcific book's details
+
+// Route to a specific book's details
 app.get('/books/:id', (req, res) => {
     res.send('you have reached the details for a specific book')
     .catch((error) => {

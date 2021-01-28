@@ -1,26 +1,26 @@
 <h1><%= currentUser.name %>'s Profile</h1>
 
 <div class="searchForm">
-    <h2>Find a Book</h2>
+    <h3>Find a Book</h3>
     
     <form action="/results" method="GET">
-        <input placeholder="search by title, author, or publisher" type="text" name="searchTerm" id="searchTerm">
+        <input placeholder="search by title, author, or publisher" type="text" name="name" id="searchTerm">
         <br>
-        <input type="submit" value="Search library">
+        <input type="submit">
     </form>
 </div>
 
 <div class="currentRead">
-    <h3>Currently Reading</h3>
+    <h2>Currently Reading</h2>
     <!-- include alligator tag for current book -->
 </div>
 
 <div class="readingList">
-    <h3>Reading List</h3>
+    <h2>Reading List</h2>
     <!-- include forEach for reading list -->
 </div>
 
 <div class="favsList">
-    <h3>Favorites & Recommended</h3>
+    <h2>Favorites & Recommended</h2>
     <!-- include forEach for reading list -->
 </div>
