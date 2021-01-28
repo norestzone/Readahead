@@ -33,7 +33,7 @@
 <hr />
 <!-- Comment section -->
 <div class="bookComment">
-    <h3>Talk About the Book:</h3>
+    <h3>Talk About the Book</h3>
     <form class="userComment" action="/book/<%= book.isbn %>/comments" method="POST">
         <input type="text" placeholder="Your name" name="name">
         <input type="text" placeholder="Write a comment" name="comment">
@@ -42,4 +42,8 @@
         <input type="submit" value="Post to conversation thread">
     </form>
 </div>
-<hr />
+
+<!-- Conversation thread -->
+<div class="bookConvo">
+    <h3>What Readers Are Saying</h3>
+</div>

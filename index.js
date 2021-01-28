@@ -83,11 +83,21 @@ app.get('/book/:isbn', (req, res) => {
         });
 })
 
-// Comment unfinished
+// Comments unfinished
 app.post('/book/:isbn/comments', (req, res) => {
     console.log('comments reached')
+    db.article.findOne({
+        where: { id: req.params.isbn },
+        include: [db.book, db.comment]
+      }).then(book => {
+        book.createComment({
+          name: req.body.user_id,
+          content: req.body.comment
+        }).then(comment => {
+          res.redirect('details')
+        })
+      })
 })
-
 
 // Routes
 app.get('/', (req, res) => {
