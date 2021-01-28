@@ -1,29 +1,30 @@
-<!-- Cover image  -->
-<img src="<%= book.image %>"> 
-
-<!-- Book Title  -->
-<h1><%= book.title %></h1>
-
-<!-- Author, publisher, publish date -->
-<p>Author(s): <%= book.authors %></p>
-<p>ISBN: <%= book.isbn %></p>
-
-<!-- Add buttons - need current, reading list, favs -->
-
-<!-- Add to currently reading -->
-<form action="/profile" method="POST">
-    <input type="submit" value="Currently Reading" id="currentBook">
-    <input type="hidden" name="currentTitle" value="<%= book.title %>">
-    <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
+<div class="bookDetails">
+    <!-- Cover image  -->
+    <img src="<%= book.image %>"> 
     
-    <input type="submit" value="Add to Reading List" id="listBooks">
-    <input type="hidden" name="listTitle" value="<%= book.title %>">
-    <input type="hidden" name="listIsbn" value="<%= book.isbn %>">
-
-    <input type="submit" value="Add to Favorites" id="favBooks">
-    <input type="hidden" name="favTitle" value="<%= book.title %>">
-    <input type="hidden" name="favIsbn" value="<%= book.isbn %>">
-</form>
+    <!-- Book Title  -->
+    <h2><%= book.title %></h2>
+    
+    <!-- Author, publisher, publish date -->
+    <p>Author(s): <%= book.authors %>, ISBN: <%= book.isbn %></p>
+    
+    <!-- Add buttons - need current, reading list, favs -->
+    
+    <!-- Add to currently reading -->
+    <form action="/profile" method="POST">
+        <input type="submit" value="Currently Reading" id="currentBook">
+        <input type="hidden" name="currentTitle" value="<%= book.title %>">
+        <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
+        
+        <input type="submit" value="Add to Reading List" id="listBooks">
+        <input type="hidden" name="listTitle" value="<%= book.title %>">
+        <input type="hidden" name="listIsbn" value="<%= book.isbn %>">
+    
+        <input type="submit" value="Add to Favorites" id="favBooks">
+        <input type="hidden" name="favTitle" value="<%= book.title %>">
+        <input type="hidden" name="favIsbn" value="<%= book.isbn %>">
+    </form>
+</div>
 
 
 <hr />
@@ -35,12 +36,11 @@
 
 <!-- Comment section -->
 <div class="bookComment">
-    <h3>Get in on the conversation!</h3>
+    <h3>Get in on the conversation:</h3>
     <form class="userComment" action="/book/<%= book.isbn %>/comments" method="POST">
-        <input type="text" placeholder="Your name" name="name">
-        <input type="text" placeholder="Write a comment" name="comment">
+        <input type="text" name="comment" id="commentText">
         <br>
         <br>
-        <input type="submit" value="Post to conversation thread" id="postComment">
+        <input type="submit" value="Post comment to the thread" id="postComment">
     </form>
 </div>

@@ -6,29 +6,53 @@ body {
 }
 
 h1 {
-    color: rgb(68, 173, 192);
+    color: rgb(62, 198, 223);
 }
 
-h1, h2, h3, h4, h5, h6 p {
+h1, h2, h3, h4, h5, h6, p, #navBar {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#navBar {
+    margin-top: 10px;
+    background-color: rgb(219, 219, 219);
 }
 
 .homePage {
     display: inline-block;
     margin: 50px;
-    border: 1px solid black;
+    border: 2px solid lightgray;
     width: 500px;
 }
 
 .searchForm {
     margin-top: 50px;
-    border: 1px solid lightgray;
+    border: 2px solid lightgray;
     width: 400px;
+}
+
+.bookConvo, .bookComment {
+    margin-top: 50px;
+    border: 2px solid lightgray;
+    width: 500px;
+}
+
+.currentRead {
+    margin-top: 50px;
+    width: 600px;
+}
+
+.readingList, .favsList {
+    text-align: left;
 }
 
 #email, #password, #loginButton, #searchButton, #currentBook, #listBooks, #favBooks {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+#email, #password {
+    width: 200px;
 }
 
 #searchTerm {
@@ -38,19 +62,28 @@ h1, h2, h3, h4, h5, h6 p {
 #loginButton, #createButton, #searchButton, #currentBook, #listBooks, #favBooks {
     width: 130px;
     height: 20px;
-    background-color: rgb(68, 173, 192);
+    background-color: rgb(62, 198, 223);
     color: white;
-    border: rgb(68, 173, 192);
+    border: rgb(62, 198, 223);
 }
 
-#createButton, #searchButton {
+.bookDetails {
+    margin-top: 20px;
+}
+
+#createButton, #searchButton, #postComment {
     margin-bottom: 30px;
+}
+
+#commentText {
+    width: 300px;
+    height: 150px;
 }
 
 #postComment {
     width: 175px;
     height: 20px;
-    background-color: rgb(68, 173, 192);
+    background-color: rgb(62, 198, 223);
     color: white;
-    border: rgb(68, 173, 192);
+    border: rgb(62, 198, 223);
 }

@@ -1,9 +1,8 @@
-<h1><%= currentUser.name %>'s Profile</h1>
+<h1><%= currentUser.name %>'s Bookshelf</h1>
 <hr>
 
 <div class="searchForm">
     <h2>Find a Book</h2>
-    
     <form action="/results" method="GET">
         <input placeholder="search by isbn, title, author, or publisher" type="text" name="name" id="searchTerm">
         <br>
@@ -15,12 +14,12 @@
     <h2>Currently Reading</h2>
     <!-- include alligator tag for current book -->
 </div>
-
+<hr>
 <div class="readingList">
     <h2>Reading List</h2>
     <!-- include forEach for reading list -->
 </div>
-
+<hr>
 <div class="favsList">
     <h2>Favorites & Recommended</h2>
     <!-- include forEach for reading list -->
