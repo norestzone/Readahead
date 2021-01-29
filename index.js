@@ -107,16 +107,16 @@ app.post('/book/:isbn/comments', isLoggedIn, (req, res) => {
 
 // Edit comment in thread
 app.put('/book/:isbn/comments', isLoggedIn, (req, res) => {
-    db.comment.update({
-        comment: req.body.comment
-    }, {
-        where: {
-            userId: req.user.id,
-            bookId: req.params.isbn
-        }
-    }).then(updated => {
-        res.redirect(`/book/${req.params.isbn}`)
-    })
+    console.log('🎉🎉comment updated')
+    // db.comment.update({
+    //     comment: req.body.comment
+    // }, {
+    //     where: {
+    //         id: req.body.id
+    //     }
+    // }).then(updated => {
+    //     res.redirect(`/book/${req.params.isbn}`)
+    // })
 })
 
 // Delete comment from thread

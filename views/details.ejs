@@ -41,7 +41,7 @@
             <p><%= comment.comment %> </p>
             
             <!-- edit comment -->
-            <form action="/book/<%= book.isbn %>/comments/?_method=UPDATE" method="POST">
+            <form action="/book/<%= book.isbn %>/comments/?_method=PUT" method="POST">
                 <input type="text" name="editComment" id="commentUpdate">
                 <input type="submit" value="Edit comment">
             </form>
