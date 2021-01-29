@@ -6,7 +6,11 @@ A platform where users create a profile to house their online bookshelf! Users l
 
 ## User Experience
 
-User creates an account where they are then able to log in and are directed to their user profile.
+A user creates an account where they are able to log in and are then directed to their user profile.
+
+While on their profile page a user can utilize the Find a Book feature by entering search terms that include isbn, title, author, or publisher. Once the search is submitted, results are shown and a user is able to select a title to view individual book details.
+
+Within an individual book's details, a user can add the title to their profile by choosing Currently Reading, Add to Reading List, and Add to Favorites. The user is also able to create, edit, and delete their comment(s) on the book and read what other users have to say.
 <br>
 <br>
 
@@ -18,22 +22,35 @@ User creates an account where they are then able to log in and are directed to t
 <br>
 
 ## MVP Checklist
-* 
+* Create database for users and books
+* Render login/signup page
+* Render profile page to include search feature and book categories
+* Create user options for books (current, reading list, favorites)
+* Inlude feature where a user can create, read, update, or delete a comment on a selected book
+* Incorporate css and add styling
+* Write readme and deploy
+
 <br>
 <br>
 
 ## Stretch Goals
-* 
+* Book rating system - Incomplete
+* Add book genres - Incomplete
 <br>
 <br>
 
-## Bugs and Other Game Issues
-* 
+## Bugs and Other Issues
+* Crash after creating a new account
+* User can edit/delete other user's comment(s)
+* User buttons not fully functional
 <br>
 <br>
 
 ## Planning & Building
-1. 
+1. Inital project planning went well, however met many obstacles when building database. ERD needed to be restructed multiple times and wireframes needed adjustments to meet functionality requirements.
+2. Ideally wanted to stub out all routes in the beginning, but found it was easier to add routes as functional features were added for testing purposes.
+3. API Key had a slightly different implementation method which required multiple attempts.
+4. User button feature(s) was the most time consuming of project tasks, had issues calling specific information from database.
 <br>
 <br>
 
