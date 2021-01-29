@@ -29,18 +29,22 @@
 
 <hr />
 <!-- Conversation thread -->
-<div class="bookConvo">
-    <h3>What Readers Are Saying</h3>
-
-</div>
-
-<!-- Comment section -->
-<div class="bookComment">
-    <h3>Get in on the conversation:</h3>
-    <form class="userComment" action="/book/<%= book.isbn %>/comments" method="POST">
-        <input type="text" name="comment" id="commentText">
-        <br>
-        <br>
-        <input type="submit" value="Post comment to the thread" id="postComment">
-    </form>
+<div class="commentSection">
+    <div class="bookConvo">
+        <h3>What Readers Are Saying</h3>
+        <% comments.forEach(comment => { %> 
+            <p><%= comment.comment %> </p>
+        <% }) %> 
+    </div>
+    
+    <!-- Comment section -->
+    <div class="bookComment">
+        <h3>Get in on the conversation:</h3>
+        <form class="userComment" action="/book/<%= book.isbn %>/comments" method="POST">
+            <input type="text" name="comment" id="commentText">
+            <br>
+            <br>
+            <input type="submit" value="Post comment to the thread" id="postComment">
+        </form>
+    </div>
 </div>

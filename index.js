@@ -9,6 +9,7 @@ const passport = require('./config/ppConfig.js')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const { default: axios } = require('axios')
+const db = require('./models')
 
 // set the view engine to ejs
 app.set('view engine', 'ejs')
@@ -46,7 +47,7 @@ app.use('/auth', require('./controllers/auth.js'))
 // ADDED CSS
 app.use(express.static(__dirname + '/public'));
 
-// **** NEW ROUTES ****
+// **** NEW ROUTES START ****
 
 // Route to book search results
 app.get('/results', (req, res) => {
@@ -75,29 +76,32 @@ app.get('/book/:isbn', (req, res) => {
     axios.get(`https://api2.isbndb.com/book/${req.params.isbn}`, {headers: headers})
         .then(json => {
             console.log(json.data)
-            res.render('details', {book:json.data.book})
-            // res.json(json.data)
+            db.comment.findAll({
+                where: {
+                    bookId: req.params.isbn
+                }
+            }).then(comments => {
+                res.render('details', {book:json.data.book, comments:comments})
+            })
         })
         .catch(error => {
             console.error('Error:', error)
         });
 })
 
-// Comments unfinished
-app.post('/book/:isbn/comments', (req, res) => {
+// Create and add comment to thread
+app.post('/book/:isbn/comments', isLoggedIn, (req, res) => {
     console.log('comments reached')
-    db.article.findOne({
-        where: { id: req.params.isbn },
-        include: [db.book, db.comment]
-      }).then(book => {
-        book.createComment({
-          name: req.body.user_id,
-          content: req.body.comment
-        }).then(comment => {
-          res.redirect('details')
-        })
-      })
+    db.comment.create({
+        userId: req.user.id,
+        bookId: req.params.isbn,
+        comment: req.body.comment
+    }).then((comments) => {
+        res.redirect(`/book/${comments.bookId}`)
+    })
 })
+
+// **** NEW ROUTES END ****
 
 // Routes
 app.get('/', (req, res) => {
@@ -112,15 +116,6 @@ app.get('/profile',isLoggedIn, (req, res) => {
 app.get('*', (req, res)=>{
     res.render('404')
 })
-
-
-// ---- NEW ROUTES ----
-
-// Route to book details
-app.get('/details', (req, res) => {
-    res.send('you have reached the book details')
-})
-
 
 app.listen(process.env.PORT, () => {
     console.log(`Project 2 is running on ${process.env.PORT}`)
