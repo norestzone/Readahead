@@ -29,7 +29,6 @@ Within an individual book's details, a user can add the title to their profile b
 * Inlude feature where a user can create, read, update, or delete a comment on a selected book
 * Incorporate css and add styling
 * Write readme and deploy
-
 <br>
 <br>
 
@@ -55,4 +54,6 @@ Within an individual book's details, a user can add the title to their profile b
 <br>
 
 ## Final Thoughts
-This project was 
+This project was fun to conceptualize and build out despite the many challenges I encountered. I was able to refer back to what we've learned in this unit while expanding my understanding of the subject matter and learning new ways of implementation.
+
+My main takeway from this project is to plan ERDs and wireframing appropriately and ensure it will meet project goals in order to avoid future complications if possible.
