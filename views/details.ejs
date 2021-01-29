@@ -20,8 +20,8 @@
     <!-- <form action="/profile" method="POST">
         <input type="submit" value="Add to Reading List" id="listBooks">
         <input type="hidden" name="listTitle" value="<%= book.title %>">
-        <input type="hidden" name="listIsbn" value="<%= book.isbn %>"> -->
-    <!-- </form> -->
+        <input type="hidden" name="listIsbn" value="<%= book.isbn %>">
+    </form> -->
     
     <!-- Add to favorites -->
     <!-- <form action="/profile" method="POST">
@@ -36,20 +36,23 @@
 <!-- Conversation thread -->
 <div class="commentSection">
     <div class="bookConvo">
-        <h3>What Readers Are Saying:</h3>
+        <h3>What Readers Are Saying</h3>
         <% comments.forEach(comment => { %> 
+            <% console.log(comment) %> 
             <p><%= comment.comment %> </p>
-            
+
             <!-- edit comment -->
-            <form action="/book/<%= book.isbn %>/editcomment" method="GET">
+            <form action="/book/<%= book.isbn %>/comments/?_method=PUT" method="POST">
+                <input hidden type="number" name="id" value="<%= comment.id %>">
+                <input type="text" name="editComment" id="commentUpdate">
+                <br>
                 <input type="submit" value="Edit comment" id="updateComment">
             </form>
             <br>
-
             <!-- delete comment -->
             <form action="/book/<%= book.isbn %>/comments/?_method=DELETE" method="POST">
                 <input hidden type="number" name="id" value="<%= comment.id %> ">
-                <input hidden type="number" name="id" value="<%= comment.bookId %> ">
+                <input hidden type="number" name="id" value="<%= comment.bookId %>">
                 <input type="submit" value="Delete comment" id="deleteComment">
             </form>
             <% }) %>
