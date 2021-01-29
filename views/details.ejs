@@ -8,18 +8,23 @@
     <!-- Author, publisher, publish date -->
     <p>Author(s): <%= book.authors %>, ISBN: <%= book.isbn %></p>
     
-    <!-- Add buttons - need current, reading list, favs -->
-    
-    <!-- Add to currently reading -->
+    <!-- Buttons to add a book to user's profile -->
     <form action="/profile" method="POST">
+        <!-- Add to currently reading -->
         <input type="submit" value="Currently Reading" id="currentBook">
         <input type="hidden" name="currentTitle" value="<%= book.title %>">
         <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
-        
+    </form>
+
+    <!-- Add to reading list -->
+    <form action="/profile" method="POST">
         <input type="submit" value="Add to Reading List" id="listBooks">
         <input type="hidden" name="listTitle" value="<%= book.title %>">
         <input type="hidden" name="listIsbn" value="<%= book.isbn %>">
+    </form>
     
+    <!-- Add to favorites -->
+    <form action="/profile" method="POST">
         <input type="submit" value="Add to Favorites" id="favBooks">
         <input type="hidden" name="favTitle" value="<%= book.title %>">
         <input type="hidden" name="favIsbn" value="<%= book.isbn %>">

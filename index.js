@@ -132,6 +132,19 @@ app.delete('/book/:isbn/comments', isLoggedIn, (req, res) => {
     })
 })
 
+app.post('/profile', (req, res) => {
+    // console.log('WA🎉WA🎉WA🎉W🎉AW🎉AWA🎉AW🎉W', req.body)
+    if(req.body.currentTitle) {
+        db.book.create({
+            isbn: req.body.currentIsbn,
+            title: req.body.currentTitle
+        }).then(currentBook => {
+            console.log('WA🎉WA🎉WA🎉W🎉AW🎉AWA🎉AW🎉W', currentBook)
+            res.redirect('profile')
+        })
+    }
+})
+
 // **** NEW ROUTES END ****
 
 // Routes
@@ -139,8 +152,23 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-
 app.get('/profile',isLoggedIn, (req, res) => {
+    db.user.findOne({
+        where: {
+            id: req.user.id,
+        }, include: [db.book]
+    }).then((response => {
+        console.log('🎉🎉🎉🎉🎉🎉🎉🎉', response)
+        // db.book.findOne({
+            // where: {
+                // id: response.bookId
+            // }
+        })
+        // .then((resp => {
+        //     console.log(resp)
+        // }))
+    // })
+    )
     res.render('profile')
 })
 
