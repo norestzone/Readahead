@@ -9,6 +9,8 @@
     </form>
     <div class="createAccount">
         <p>Don't have an account yet? Let's make one!</p>
-        <input id="createButton" type="button" href="/auth/signup" value="Create Account">
+        <form action="/auth/signup" method="GET">
+            <input id="createButton" type="submit" value="Create Account">
+        </form>
     </div>
 </div>

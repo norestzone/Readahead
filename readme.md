@@ -42,7 +42,6 @@ Within an individual book's details, a user can add the title to their profile b
 * Crash after creating a new account
 * User can edit/delete other user's comment(s)
 * User buttons not fully functional
-* Create Account button not redirecting
 <br>
 <br>
 
