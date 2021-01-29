@@ -10,11 +10,15 @@ const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const { default: axios } = require('axios')
 const db = require('./models')
+const methodOverride = require('method-override');
 
 // set the view engine to ejs
 app.set('view engine', 'ejs')
 
 app.use(express.urlencoded({ extended: false }))
+
+// method override
+app.use(methodOverride('_method'));
 
 // session middleware
 app.use(session({
@@ -98,6 +102,33 @@ app.post('/book/:isbn/comments', isLoggedIn, (req, res) => {
         comment: req.body.comment
     }).then((comments) => {
         res.redirect(`/book/${comments.bookId}`)
+    })
+})
+
+// Edit comment in thread
+app.put('/book/:isbn/comments', isLoggedIn, (req, res) => {
+    db.comment.update({
+        comment: req.body.comment
+    }, {
+        where: {
+            userId: req.user.id,
+            bookId: req.params.isbn
+        }
+    }).then(updated => {
+        res.redirect(`/book/${req.params.isbn}`)
+    })
+})
+
+// Delete comment from thread
+app.delete('/book/:isbn/comments', isLoggedIn, (req, res) => {
+    console.log('comments reached')
+    db.comment.destroy({
+        where: {
+            userId: req.user.id,
+            bookId: req.params.isbn,
+        }   
+    }).then((comments) => {
+        res.redirect(`/book/${req.params.isbn}`)
     })
 })
 

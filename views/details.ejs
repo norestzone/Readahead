@@ -34,10 +34,23 @@
         <h3>What Readers Are Saying</h3>
         <% comments.forEach(comment => { %> 
             <p><%= comment.comment %> </p>
-        <% }) %> 
-    </div>
-    
-    <!-- Comment section -->
+            
+            <!-- edit comment -->
+            <form action="/book/<%= book.isbn %>/comments/?_method=UPDATE" method="POST">
+                <input type="text" name="editComment" id="commentUpdate">
+                <input type="submit" value="Edit comment">
+            </form>
+
+            <!-- delete comment -->
+            <form action="/book/<%= book.isbn %>/comments/?_method=DELETE" method="POST">
+                <input hidden type="number" name="id" value="<%= comment.id %> ">
+                <input hidden type="number" name="id" value="<%= comment.bookId %> ">
+                <input type="submit" value="Delete comment">
+            </form>
+            <% }) %>
+        </div>
+
+<!-- Comment section -->
     <div class="bookComment">
         <h3>Get in on the conversation:</h3>
         <form class="userComment" action="/book/<%= book.isbn %>/comments" method="POST">
