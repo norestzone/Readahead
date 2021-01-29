@@ -106,17 +106,35 @@ app.post('/book/:isbn/comments', isLoggedIn, (req, res) => {
 })
 
 // Edit comment in thread
-app.put('/book/:isbn/comments', isLoggedIn, (req, res) => {
-    console.log('🎉🎉comment updated')
-    // db.comment.update({
-    //     comment: req.body.comment
-    // }, {
-    //     where: {
-    //         id: req.body.id
-    //     }
-    // }).then(updated => {
-    //     res.redirect(`/book/${req.params.isbn}`)
-    // })
+// app.put('/book/:isbn/comments', isLoggedIn, (req, res) => {
+//     console.log(req.body.comment)
+//     db.comment.findOne({
+//         where: {
+//             id: req.body.id
+//         }
+//     }).then(updated => {
+//         db.comment.update({
+//             comment: req.body.comment
+//         })
+//         console.log(updated)
+//         res.redirect(`/book/${req.params.isbn}`)
+//     })
+// })
+
+// Edit comment in new form
+app.put('/book/:isbn/editcomment', isLoggedIn, (req, res) => {
+    console.log(req.body.comment)
+    db.comment.findOne({
+        where: {
+            id: req.body.id
+        }
+    }).then(updated => {
+        db.comment.update({
+            comment: req.body.comment
+        })
+        console.log(updated)
+        res.redirect(`/book/${req.params.isbn}`)
+    })
 })
 
 // Delete comment from thread

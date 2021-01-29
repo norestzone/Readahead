@@ -9,48 +9,48 @@
     <p>Author(s): <%= book.authors %>, ISBN: <%= book.isbn %></p>
     
     <!-- Buttons to add a book to user's profile -->
-    <form action="/profile" method="POST">
+    <!-- <form action="/profile" method="POST"> -->
         <!-- Add to currently reading -->
-        <input type="submit" value="Currently Reading" id="currentBook">
+        <!-- <input type="submit" value="Currently Reading" id="currentBook">
         <input type="hidden" name="currentTitle" value="<%= book.title %>">
         <input type="hidden" name="currentIsbn" value="<%= book.isbn %>">
-    </form>
+    </form> -->
 
     <!-- Add to reading list -->
-    <form action="/profile" method="POST">
+    <!-- <form action="/profile" method="POST">
         <input type="submit" value="Add to Reading List" id="listBooks">
         <input type="hidden" name="listTitle" value="<%= book.title %>">
-        <input type="hidden" name="listIsbn" value="<%= book.isbn %>">
-    </form>
+        <input type="hidden" name="listIsbn" value="<%= book.isbn %>"> -->
+    <!-- </form> -->
     
     <!-- Add to favorites -->
-    <form action="/profile" method="POST">
+    <!-- <form action="/profile" method="POST">
         <input type="submit" value="Add to Favorites" id="favBooks">
         <input type="hidden" name="favTitle" value="<%= book.title %>">
         <input type="hidden" name="favIsbn" value="<%= book.isbn %>">
     </form>
-</div>
+</div> -->
 
 
 <hr />
 <!-- Conversation thread -->
 <div class="commentSection">
     <div class="bookConvo">
-        <h3>What Readers Are Saying</h3>
+        <h3>What Readers Are Saying:</h3>
         <% comments.forEach(comment => { %> 
             <p><%= comment.comment %> </p>
             
             <!-- edit comment -->
-            <form action="/book/<%= book.isbn %>/comments/?_method=PUT" method="POST">
-                <input type="text" name="editComment" id="commentUpdate">
-                <input type="submit" value="Edit comment">
+            <form action="/book/<%= book.isbn %>/editcomment" method="GET">
+                <input type="submit" value="Edit comment" id="updateComment">
             </form>
+            <br>
 
             <!-- delete comment -->
             <form action="/book/<%= book.isbn %>/comments/?_method=DELETE" method="POST">
                 <input hidden type="number" name="id" value="<%= comment.id %> ">
                 <input hidden type="number" name="id" value="<%= comment.bookId %> ">
-                <input type="submit" value="Delete comment">
+                <input type="submit" value="Delete comment" id="deleteComment">
             </form>
             <% }) %>
         </div>

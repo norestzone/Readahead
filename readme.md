@@ -25,8 +25,8 @@ Within an individual book's details, a user can add the title to their profile b
 * Create database for users and books
 * Render login/signup page
 * Render profile page to include search feature and book categories
-* Create user options for books (current, reading list, favorites)
 * Inlude feature where a user can create, read, update, or delete a comment on a selected book
+* Create user options for books (current, reading list, favorites) - Incomplete
 * Incorporate css and add styling
 * Write readme and deploy
 <br>
@@ -42,6 +42,7 @@ Within an individual book's details, a user can add the title to their profile b
 * Crash after creating a new account
 * User can edit/delete other user's comment(s)
 * User buttons not fully functional
+* Create Account button not redirecting
 <br>
 <br>
 

@@ -26,18 +26,20 @@ h1, h2, h3, h4, h5, h6, p, #navBar {
 }
 
 .searchForm {
+    display: inline-block;
     margin-top: 50px;
     border: 2px solid lightgray;
     width: 400px;
 }
 
 .commentSection {
+    display: inline-block;
 }
 
 .bookConvo, .bookComment {
     margin-top: 50px;
     border: 2px solid lightgray;
-    width: 600px;
+    width: 800px;
 }
 
 .currentRead {
@@ -62,7 +64,7 @@ h1, h2, h3, h4, h5, h6, p, #navBar {
     width: 300px;
 }
 
-#loginButton, #createButton, #searchButton, #currentBook, #listBooks, #favBooks {
+#loginButton, #createButton, #searchButton, #currentBook, #listBooks, #favBooks, #updateComment, #deleteComment {
     width: 130px;
     height: 20px;
     background-color: rgb(62, 198, 223);
@@ -74,7 +76,7 @@ h1, h2, h3, h4, h5, h6, p, #navBar {
     margin-top: 20px;
 }
 
-#createButton, #searchButton, #postComment {
+#createButton, #searchButton, #postComment, #deleteComment {
     margin-bottom: 30px;
 }
 
